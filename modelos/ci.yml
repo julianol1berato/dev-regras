@@ -1,0 +1,56 @@
+# Esqueleto de CI (GitHub Actions): os portões do "antes de dar algo por pronto" do
+# projeto, em todo PR, em todo push na main e em toda tag de versão. Copie para
+# .github/workflows/ci.yml e troque os passos de exemplo pelos comandos do projeto.
+name: CI
+
+on:
+  push:
+    branches: [main]
+    tags: ['v*.*.*']
+  pull_request:
+    branches: [main]
+
+concurrency:
+  group: ci-${{ github.ref }}
+  # PR novo cancela o anterior; main e tag nunca são cancelados.
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+permissions:
+  contents: read
+
+jobs:
+  # Lembrete, não bloqueia: mudança de comportamento vem com uma linha no CHANGELOG.
+  changelog:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      - name: Avisa quando o código mudou e o CHANGELOG não
+        run: |
+          changed=$(git diff --name-only "origin/${{ github.base_ref }}...HEAD")
+          # Troque pelas pastas de código do projeto.
+          if echo "$changed" | grep -qE '^(src|cmd|internal|web)/' \
+             && ! echo "$changed" | grep -qx 'CHANGELOG.md'; then
+            echo "::warning file=CHANGELOG.md::o código mudou e o CHANGELOG não. Se o comportamento mudou, acrescente uma linha em [Não lançado]."
+          fi
+
+  testes:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v7
+
+      # Exemplo para um projeto Go com interface em Node; use só o que o projeto tem.
+      - uses: actions/setup-go@v7
+        with:
+          go-version-file: go.mod
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '24'
+
+      - name: Build e testes
+        run: |
+          go vet ./...
+          go test ./...
