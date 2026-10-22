@@ -42,4 +42,4 @@ referência é o [ai-memory](https://github.com/akitaonrails/ai-memory), do Fabi
 
 ## Licença
 
-[A definir antes de publicar.]
+[MIT](LICENSE): use, copie e adapte à vontade, mantendo o aviso de copyright.
