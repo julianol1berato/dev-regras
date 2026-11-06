@@ -1,7 +1,7 @@
 # lancar: marca uma versão. Confere o CHANGELOG, cria a tag anotada com a frase e
-# as notas da seção, e a envia ao GitHub. Só marca: publicar a imagem e subir em
-# produção continuam passos separados, porque a tag é o registro do que foi
-# lançado, e subir é uma decisão.
+# as notas da seção, e a envia ao remoto (GitHub ou GitLab). Só marca: publicar a
+# imagem e subir em produção continuam passos separados, porque a tag é o registro
+# do que foi lançado, e subir é uma decisão.
 #
 # Uso:  make lancar VERSAO=v1.4.3 RESUMO='o extrato sai em planilha'
 #

@@ -65,8 +65,8 @@ Se o agente de IA notar isso, ele deve propor.
 
 - A versão é uma **tag anotada** (`git tag -a`), com uma frase de resumo e as notas da seção do
   changelog.
-- **A tag aponta para um commit que a CI já viu passar**, e que está no GitHub. Nunca para uma
-  árvore modificada.
+- **A tag aponta para um commit que a CI já viu passar**, e que está no servidor do git (GitHub,
+  GitLab). Nunca para uma árvore modificada.
 - **Tag publicada nunca se move nem se apaga.** Se a versão saiu errada, a correção é a próxima
   versão. Mover a tag faz duas pessoas falarem da "1.4.3" e terem códigos diferentes.
 - Use um alvo de `make` que confira tudo isso antes de criar a tag (veja `modelos/lancar.mk`).
@@ -86,8 +86,8 @@ Se o agente de IA notar isso, ele deve propor.
 1. `main` verde na CI.
 2. Num PR, renomeie `[Não lançado]` para `## [X.Y.Z] — AAAA-MM-DD`, abra um `[Não lançado]` vazio
    acima dela, e faça o merge.
-3. `make lancar VERSAO=X.Y.Z`: confere a seção datada, a árvore limpa e o commit no GitHub, e cria
-   e envia a tag.
+3. `make lancar VERSAO=X.Y.Z`: confere a seção datada, a árvore limpa e o commit no servidor, e
+   cria e envia a tag.
 4. A CI publica a imagem `app:X.Y.Z`.
 5. Homologação com essa imagem; conferência.
 6. Produção: aponte para `X.Y.Z` e suba.

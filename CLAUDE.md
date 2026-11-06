@@ -2,8 +2,9 @@
 
 ## O que é este repositório
 
-Regras de trabalho genéricas, para qualquer projeto, escritas em pt-BR. Começa por versões e
-lançamentos (`versoes-e-lancamentos.md`), com modelos prontos para copiar em `modelos/`.
+Regras de trabalho genéricas, para qualquer projeto, escritas em pt-BR: versões e lançamentos
+(`versoes-e-lancamentos.md`), revisão e aprovação (`revisao-e-aprovacao.md`) e trabalho com
+agentes de IA (`agentes-de-ia.md`), com modelos prontos para copiar em `modelos/`.
 
 ## ⚠️ Este repositório é PÚBLICO
 

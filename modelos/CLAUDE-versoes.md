@@ -20,7 +20,7 @@ Versão é `<prefixo>X.Y.Z` (SemVer), e quem diz o número é o `CHANGELOG.md`.
    2. num PR, renomeie `[Não lançado]` para `## [X.Y.Z] — AAAA-MM-DD`, abra um `[Não lançado]`
       vazio acima dela, e faça o merge;
    3. `make lancar VERSAO=<prefixo>X.Y.Z RESUMO='…'` (confere a seção datada, a árvore limpa e o
-      commit no GitHub, e cria a tag anotada com as notas);
+      commit no servidor do git, e cria a tag anotada com as notas);
    4. a imagem `<app>:<prefixo>X.Y.Z` é publicada (pela CI ou por `<alvo de publicação>`);
    5. a mesma imagem passa pela homologação e depois vai para a produção. A produção nunca compila.
 5. **Correção urgente com a `main` à frente**: saia da tag que está no ar

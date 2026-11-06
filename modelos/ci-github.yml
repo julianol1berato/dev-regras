@@ -1,11 +1,14 @@
 # Esqueleto de CI (GitHub Actions): os portões do "antes de dar algo por pronto" do
-# projeto, em todo PR, em todo push na main e em toda tag de versão. Copie para
-# .github/workflows/ci.yml e troque os passos de exemplo pelos comandos do projeto.
+# projeto, em todo PR, em todo push na main e nas linhas de correção, e em toda tag
+# de versão. Copie para .github/workflows/ci.yml e troque os passos de exemplo pelos
+# comandos do projeto. O equivalente no GitLab é ci-gitlab.yml.
 name: CI
 
 on:
   push:
-    branches: [main]
+    # A linha de correção (versoes-e-lancamentos.md, item 7) lança a tag dela mesma,
+    # então a CI tem de ter passado nela, e não só na main.
+    branches: [main, 'correcao/**']
     tags: ['v*.*.*']
   pull_request:
     branches: [main]
