@@ -4,7 +4,9 @@
 
 Regras de trabalho genéricas, para qualquer projeto, escritas em pt-BR: versões e lançamentos
 (`versoes-e-lancamentos.md`), revisão e aprovação (`revisao-e-aprovacao.md`) e trabalho com
-agentes de IA (`agentes-de-ia.md`), com modelos prontos para copiar em `modelos/`.
+agentes de IA (`agentes-de-ia.md`), com modelos prontos para copiar em `modelos/`. E o padrão
+dos sistemas internos: login e acesso (`login-e-acesso.md`), cores (`cores.md`, sobre a paleta do
+repositório color-navy), interface (`interface.md`) e conformidade (`conformidade.md`).
 
 ## ⚠️ Este repositório é PÚBLICO
 
