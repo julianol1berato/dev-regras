@@ -28,9 +28,15 @@ todo PR, e logo vira exceção permanente.
 | Acessibilidade | varredura automática das telas principais: contraste, rótulos, foco | avisa na homologação; bloqueia na produção |
 | Interface que não se mede | capturas das telas principais anexadas ao PR, o checklist de [`interface.md`](interface.md) e uma revisão por IA, como sugestão | revisa |
 | Testes do sistema | o sistema tem testes, e eles passam | bloqueia |
+| Aprovação | o commit que vai para a produção veio de um PR aprovado por alguém que não é o autor; a plataforma de deploy confere isso na forja | bloqueia na produção; a homologação não confere |
 
 As cores e a acessibilidade avisam na homologação porque é lá que a tela ainda está mudando. Na
 produção, o que chega já precisa estar certo.
+
+A aprovação só trava a produção. Na homologação, quem desenvolve entrega sem esperar ninguém, e a
+revisão segue o combinado de [`revisao-e-aprovacao.md`](revisao-e-aprovacao.md). Na produção, a
+plataforma recusa o que não foi aprovado, mesmo numa forja que não impõe a aprovação no merge, como o
+GitLab Free.
 
 ## 3. Exceção
 
@@ -42,16 +48,18 @@ Uma exceção sem prazo é uma regra que deixou de existir sem ninguém decidir 
 
 ## 4. Sistemas que já existem
 
-- **Entram com uma nota** dizendo o que já cumprem e o que falta, e **com um prazo** para o resto.
-- **Não são bloqueados no primeiro dia.** Cada falta vale como aviso até o prazo vencer, e vira
-  bloqueio depois.
+- **Entram com uma nota** dizendo o que já cumprem e o que falta.
+- **Não são bloqueados no primeiro dia.** Enquanto não há prazo, cada falta aparece como **alerta de
+  inconformidade** na plataforma: na tela do sistema e na lista de todos os sistemas.
+- **Com um prazo**, a falta continua como aviso até ele vencer, e vira bloqueio depois.
 
 Barrar de uma vez um sistema que funciona só ensina a pedir exceção.
 
 ## 5. A nota de conformidade
 
 Cada sistema mostra, na plataforma de deploy, quais regras cumpre e quais não cumpre, com a versão
-do padrão. Assim dá para ver de uma vez quem está atrás, sem abrir projeto por projeto.
+do padrão. Um sistema com alguma falta leva o alerta de inconformidade até corrigir ou ganhar uma
+exceção. Assim dá para ver de uma vez quem está atrás, sem abrir projeto por projeto.
 
 ## 6. Regra nova entra avisando
 

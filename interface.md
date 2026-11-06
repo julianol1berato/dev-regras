@@ -102,7 +102,10 @@ Sombra só no que flutua: menu, popover, modal, aviso. Card no fluxo da página 
   - cada item usa a mesma permissão da rota, e um grupo vazio não aparece;
   - o item continua ativo nas páginas de detalhe dele.
 - **Barra superior** de 56px, fixa no topo:
+  - **é a faixa da marca**: fundo `--cor-marca-fundo`, com os textos e os controles usando os papéis
+    da faixa ([`cores.md`](cores.md), regra 4);
   - à esquerda, o caminho de navegação ("Sistema › Página");
+  - no meio, a pesquisa global (item 3.1);
   - à direita, as ações globais: tema, notificações e o menu da pessoa.
 - **Caminho de navegação:** vem da rota. A página de detalhe define o próprio caminho ("Projetos ›
   Projeto › CHAVE-12").
@@ -117,6 +120,32 @@ Sombra só no que flutua: menu, popover, modal, aviso. Card no fluxo da página 
   - "Acessos" (só admin, com o número de pedidos);
   - "Sessões ativas", quando houver;
   - um divisor e "Sair".
+- **Endereço que não existe** mostra "Página não encontrada" dentro da estrutura da tela (com o menu),
+  com "Voltar ao início". Nunca uma área vazia. Um registro que não existe, ou que a pessoa não pode
+  ver, mostra "Registro não encontrado" (item 10.2).
+
+### 3.1 Pesquisa global
+
+- **Na faixa da marca**, um campo "Buscar…" com a dica `Ctrl K` (`⌘ K` no Mac) abre a pesquisa. Ela
+  abre num painel no topo da tela, de 640px.
+- **`Ctrl+K` (ou `Cmd+K`) abre de qualquer tela**, inclusive com o foco num campo.
+- **Procura no sistema todo**:
+  - registros, pela chave (`CHAVE-12`) ou pelo texto;
+  - as páginas do menu;
+  - as ações ("Nova tarefa").
+
+  Mostra só o que a pessoa pode ver e usar, com a mesma permissão do menu e das rotas.
+- **Sem texto**, mostra os itens abertos recentemente pela pessoa.
+- **Os resultados vêm em grupos por tipo**:
+  - até 5 por grupo, com "Ver todos em <lista>", que abre a lista já filtrada por aquela busca;
+  - uma chave exata vem em primeiro lugar.
+- **Funciona como a pesquisa de lista**: espera 300ms depois da última tecla e ignora acentos.
+- **Teclado:**
+  - as setas movem, Enter abre e `Ctrl+Enter` abre numa aba nova;
+  - Esc fecha e devolve o foco para onde estava.
+- **ARIA:** painel `role="dialog"`, campo `role="combobox"` e resultados em `role="listbox"`.
+- **Não substitui a busca da lista:** o `/` filtra a lista da tela, e o `Ctrl+K` procura no sistema
+  todo.
 
 ## 4. Botões
 
@@ -304,6 +333,16 @@ eles não seguem o tema, a altura, o raio nem os estados.
   válido.").
 - **Campos de máscara:** CPF, CNPJ (inclusive o alfanumérico), telefone com DDD e CEP, sempre com
   máscara e conferência do dígito.
+- **Moeda:**
+  - "R$" fixo à esquerda, valor alinhado à direita, com algarismos tabulares;
+  - a máscara trabalha enquanto se digita, da direita para a esquerda, e os dois últimos dígitos são
+    os centavos ("123456" vira "1.234,56");
+  - colar "1.234,56", "1234,56" ou "1234.56" também funciona;
+  - o valor vai para a API como número exato (centavos inteiros ou decimal em texto), nunca como
+    ponto flutuante;
+  - negativo só quando o campo permite, com o sinal escrito;
+  - campo vazio fica vazio, nunca vira "0,00" sozinho.
+  Nada de `<input type="number">` para dinheiro.
 - **Duração:**
   - aceita `01:30`, `1h30` e `90m`;
   - aparece sempre como "1h 30min";
@@ -411,13 +450,14 @@ Quando a tela de detalhe edita no lugar, sem modal:
 
 | Tecla | Faz |
 |---|---|
+| `Ctrl/Cmd+K` | abre a pesquisa global (item 3.1) |
 | `/` | foca a busca da lista |
 | `F` | abre "Mais filtros" |
 | `Esc` | fecha o menu, o popover ou o modal do topo |
 | `Ctrl/Cmd+Enter` | envia o formulário ou o modal |
 
 Atalho de uma tecla é ignorado enquanto se digita e com modal aberto, e é anunciado no `title` do
-controle ("Mais filtros (F)").
+controle ("Mais filtros (F)"). O `Ctrl/Cmd+K` é a exceção: funciona até com o foco num campo.
 
 ## 14. Desktop primeiro, sem quebrar no celular
 

@@ -140,6 +140,8 @@ de CI, o caminho do modelo de descrição) está separado nos modelos e no item 
 
 - **Uma ação primária por tela**, medidas só da escala (4/8, controles de 28, 32 e 36px, e os
   raios) e a mesma altura e raio em cada linha.
+- **A barra superior é a faixa da marca**, com a pesquisa global (`Ctrl+K`). Um endereço que não
+  existe mostra "Página não encontrada".
 - **Toda lista usa a barra de filtros padrão**: busca em pílula com `/` primeiro, chips e "Limpar
   tudo" por último, com o estado no endereço.
 - **Formulário com erro no campo**, modal que não fecha com clique fora, e ação destrutiva pelo
@@ -152,8 +154,9 @@ de CI, o caminho do modelo de descrição) está separado nos modelos e no item 
 - **A CI confere o que é objetivo**: o contrato do login bloqueia; cor solta e acessibilidade avisam
   na homologação e bloqueiam na produção.
 - **O que depende de gosto vai para a revisão**, com capturas das telas no PR.
+- **A produção só recebe commit de PR aprovado** por quem não é o autor, e a plataforma confere.
 - **Exceção tem motivo, aprovação e prazo**, e regra nova entra avisando numa versão antes de
-  bloquear.
+  bloquear. Sem prazo, a falta aparece como alerta de inconformidade.
 
 ## Licença
 

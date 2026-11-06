@@ -28,32 +28,36 @@
    - texto em 20, 16, 14, 13, 12 e 11px.
 
    Numa mesma linha, todos os controles têm a mesma altura e o mesmo raio.
-5. **Toda lista usa a barra de filtros padrão:**
+5. **A estrutura da tela:**
+   - a barra superior é a faixa da marca, com a pesquisa global (`Ctrl/Cmd+K`);
+   - um endereço que não existe mostra "Página não encontrada" dentro da estrutura;
+   - dinheiro usa o campo de moeda com máscara, nunca `type="number"`.
+6. **Toda lista usa a barra de filtros padrão:**
    - a ordem é busca (pílula de 32px, atalho `/`, 300ms, valor no endereço), liga/desliga,
      seletores, "Mais filtros (N)" e "Limpar tudo" por último;
    - todo filtro é chip;
    - nunca `<select>` nativo nem data solta na barra.
-6. **Tabelas:**
+7. **Tabelas:**
    - cabeçalho 11px MAIÚSCULAS e linha de pelo menos 40px;
    - linha clicável com um link de verdade, e coluna ordenável com `aria-sort`;
    - vazio é "—", números com algarismos tabulares, e nunca UUID à vista;
    - 25 por página, no servidor.
-7. **Formulários:**
+8. **Formulários:**
    - rótulo acima, `*` no obrigatório, e o texto de exemplo é exemplo;
    - erro inline no campo, sem banner de resumo, com o foco indo para o primeiro inválido;
    - texto longo com rascunho local.
-8. **Modais e confirmação:**
+9. **Modais e confirmação:**
    - o modal não fecha com clique fora; `Ctrl/Cmd+Enter` envia, e o foco volta a quem abriu;
    - ação destrutiva passa pelo diálogo único, com o impacto concreto e o foco em Cancelar.
-9. **Estados e avisos:**
-   - carregando, vazio (sem dados e com filtros), erro, sem permissão e não encontrado tratados em
-     toda tela;
-   - resultado de ação é aviso flutuante, nunca modal de "Sucesso!" nem texto técnico do servidor.
-10. **Textos e formatos:**
+10. **Estados e avisos:**
+    - carregando, vazio (sem dados e com filtros), erro, sem permissão e não encontrado tratados em
+      toda tela;
+    - resultado de ação é aviso flutuante, nunca modal de "Sucesso!" nem texto técnico do servidor.
+11. **Textos e formatos:**
     - pt-BR com acento, só a inicial maiúscula, sem emoji;
     - datas dd/MM/aaaa HH:mm, moeda R$ 1.234,56 e duração "1h 30min", todos pelo formatador único
       de `<caminho dos formatadores>`.
-11. **Tela antiga que você tocar entra nestas regras no mesmo PR.** PR com tela leva as capturas
+12. **Tela antiga que você tocar entra nestas regras no mesmo PR.** PR com tela leva as capturas
     antes e depois, no claro e no escuro, em 1920 e 1440.
-12. **Não desligue uma checagem de conformidade para o PR passar.** Exceção é com o dono do padrão,
+13. **Não desligue uma checagem de conformidade para o PR passar.** Exceção é com o dono do padrão,
     com motivo e prazo.

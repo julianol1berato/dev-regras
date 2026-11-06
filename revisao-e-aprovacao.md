@@ -241,7 +241,9 @@ O *Request changes* também só bloqueia o merge no Premium, nas versões a part
 
 No Free, então, ligue as linhas marcadas Free e combinem: **o merge só sai com o *Approve* de
 alguém que não é o autor**. O MR registra quem aprovou e quem fez o merge; na conversa mensal do
-item 11, confiram se algum MR entrou sem aprovação.
+item 11, confiram se algum MR entrou sem aprovação. Se a plataforma de deploy conferir a aprovação,
+a trava dura fica na produção: ela recusa o commit de um MR sem *Approve*
+([`conformidade.md`](conformidade.md)).
 
 ## 11. A revisão alimenta as regras
 

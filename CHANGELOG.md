@@ -35,7 +35,9 @@ O que muda nas regras e nos modelos a cada versão. O formato segue o
   - **Interface** (`interface.md`): princípios, medidas, estrutura da tela, botões, chips e menus, a
     barra de pesquisa e filtros das listas, tabelas, formulários, modais, confirmação destrutiva,
     avisos e estados, badges, textos e formatos, teclado, desktop primeiro, e o checklist de PR com
-    tela.
-  - **Conformidade** (`conformidade.md`): o que a CI confere, os níveis bloqueia, avisa e revisa, as
-    exceções com prazo, os sistemas que já existem e a regra nova que entra avisando.
+    tela. A barra superior é a faixa da marca, com a pesquisa global (`Ctrl+K`), e há uma página
+    "Página não encontrada" e um campo de moeda com máscara.
+  - **Conformidade** (`conformidade.md`): o que a CI confere, os níveis bloqueia, avisa e revisa, a
+    produção que só recebe commit de PR aprovado, as exceções com prazo, os sistemas que já existem
+    (com alerta de inconformidade enquanto não há prazo) e a regra nova que entra avisando.
   - Modelo: a seção de login, cores e interface para o `CLAUDE.md` (`modelos/CLAUDE-interface.md`).
